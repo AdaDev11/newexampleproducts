@@ -44,9 +44,6 @@ const OrderForm = observer(() => {
       <Text>
         ${product.price}
       </Text>
-      <Text>
-        {product.title}
-      </Text>
 
     </Card>
   ))}
