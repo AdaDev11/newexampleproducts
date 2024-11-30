@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { observer } from "mobx-react-lite";
 import productStore from "./MOBXProductsStore";
-import { Card, Image, Text, Button, Group, Pagination, Loader, Input, Select } from "@mantine/core";
+import { Card, Image, Pagination, Loader } from "@mantine/core";
 import '@mantine/core/styles.css';
 
 const OrderForm = observer(() => {
@@ -9,17 +9,6 @@ const OrderForm = observer(() => {
     productStore.fetchProducts();
     console.log("Loaded Products:", productStore.products); // Konsolda mahsulotlarni tekshirish
   }, []);
-  
-
-  const categories = [
-    { value: "", label: "All Categories" },
-    { value: "beauty", label: "Beauty" },
-    { value: "fragrances", label: "Fragrances" },
-    { value: "furniture", label: "Furniture" },
-    { value: "groceries", label: "Groceries" },
-    { value: "accessories", label: "Accessories" },
-    { value: "watches", label: "Watches" },
-  ];
 
   return (
     <>
@@ -40,7 +29,7 @@ const OrderForm = observer(() => {
   }}
 >
   {productStore.products.map((product) => (
-    <Card key={product.id} shadow="sm" padding="lg" radius="md" withBorder>
+    <Card key={product.id} withBorder>
       <Card.Section>
         <Image
           src={product.images && product.images[0] ? product.images[0] : ""}
@@ -49,13 +38,13 @@ const OrderForm = observer(() => {
           fit="cover"
         />
       </Card.Section>
-      <Text weight={500} size="lg" mt="md">
+      <Text>
         {product.name}
       </Text>
-      <Text size="xl" weight={700} color="blue" mt="md">
+      <Text>
         ${product.price}
       </Text>
-      <Text size="xl" weight={700} color="blue" mt="md">
+      <Text>
         {product.title}
       </Text>
 
