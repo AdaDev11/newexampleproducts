@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { observer } from "mobx-react-lite";
 import productStore from "./MOBXProductsStore";
-import { Card, Image, Pagination, Loader } from "@mantine/core";
+import { Card, Image, Pagination, Loader, Text } from "@mantine/core";
 import '@mantine/core/styles.css';
 
 const OrderForm = observer(() => {
